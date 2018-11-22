@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:XappPomodoro.Views"
+             xmlns:viewsModels="clr-namespace:XappPomodoro.ViewMdels"
+             x:Class="XappPomodoro.Views.ConfigurationPage">
+
+    <ContentPage.BindingContext>
+        <viewsModels:ConfigurationPageViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Label Text="Duracio del proceso"/>
+        <Picker ItemsSource="{Binding PomodoroDuration}"
+                    SelectedItem="{Binding SelectPomodoroDuration, Mode=TwoWay} "/>
+
+        <Label Text="Duracion de la pausa"/>
+        <Picker ItemsSource="{Binding BreakDuration}"
+                SelectedItem="{Binding SelectBreakDuration, Mode=TwoWay}"/>
+
+    </StackLayout>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Guardar"
+                     Command="{Binding SaveCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+</ContentPage>
